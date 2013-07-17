@@ -31,7 +31,7 @@ blogDesc:         Just another theme
 favicon:          /favicon.ico
 theme:            default
 
-disqus:           piznblog
+disqus:           simonmysunblog   
 
 copyright:        Copyright © 2011-2012 PIZn All rights reserved.
 test:             ok
