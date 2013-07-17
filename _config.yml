@@ -4,7 +4,7 @@ markdown:         rdiscount
 pygments:         true
 paginate:         4
 
-title:            The One Theme
+title:            MY Sun's blog
 url:              http://simonmysun.github.com/blog
 feed:             /atom.xml
 author:
