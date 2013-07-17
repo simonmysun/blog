@@ -1,1 +1,37 @@
 baseurl: /blog
+
+markdown:         rdiscount
+pygments:         true
+paginate:         4
+
+title:            The One Theme
+url:              http://simonmysun.github.com/blog
+feed:             /atom.xml
+author:
+    name:         PIZn
+    email:        pizner@gmail.com
+    description:  "The one theme is another web theme design by PIZn."
+
+about:            "I am PIZn.I love all kinds of design, attention to the Internet dynamic, dedicated web front development, learn UI and UED."
+follow:
+    email:        simonmysun@gmail.com
+    github:       https://github.com/simonmysun
+    twitter:      http://www.twitter.com/simonmysun
+    google:       https://plus.google.com/
+    facebook:     http://facebook.com/simonmysun
+description:      Just another blog theme -- the One
+
+indexContent:     true
+imageLink:        http://www.pizn.net/static/images/20121109Monutain.jpg
+
+
+style:            /css/style.css
+blogName:         theOne 
+blogDesc:         Just another theme
+favicon:          /favicon.ico
+theme:            default
+
+disqus:           piznblog
+
+copyright:        Copyright © 2011-2012 PIZn All rights reserved.
+test:             ok

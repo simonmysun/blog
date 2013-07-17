@@ -1,14 +1,28 @@
 ---
 layout: default
-title: 我的Blog
+date: Index
 ---
-
-<h2>{{ page.title }}</h2>
-
-<p>最新文章</p>
-
-<ul>
-    {% for post in site.posts %}
-      <li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
+{% for rpost in paginator.posts %}
+	<article class="post fn-clear">
+        <h2 class="post-title"><a href="{{ site.url }}{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h2>
+        <p class="time"><time pubdate="{{ rpost.date }}">{{ rpost.date | date_to_string }}</time></p>
+        {% if site.indexContent == true %}
+        {{ rpost.content }}
+        {% else %}
+        <p>{{ rpost.description }}</p>
+        {% endif %}
+    </article>
+{% endfor %}
+{% if paginator.total_pages > 1 %}
+    <nav id="pagination" class="fn-clear">
+        <ul class="pagination">
+            {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                    <li class="current"><a href="javascript:void(0);">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}	
