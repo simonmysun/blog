@@ -26,10 +26,10 @@ imageLink:        http://hdn.xnimg.cn/photos/hdn521/20130620/2210/h_large_j3zZ_b
 
 
 style:            /css/style.css
-blogName:         SimonMYSun 
+blogName:         MY Sun 
 blogDesc:         Life Journal here
 favicon:          /favicon.ico
-theme:            default
+theme:            Yellow 
 
 comments :
 
@@ -37,7 +37,7 @@ provider : disqus
 
 disqus :
 
-short_name : tiansj
+short_name : simonmysun 
 
 disqus:           simonmysunblog   
 
