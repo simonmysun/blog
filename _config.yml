@@ -8,28 +8,36 @@ title:            The One Theme
 url:              http://simonmysun.github.com/blog
 feed:             /atom.xml
 author:
-    name:         PIZn
-    email:        pizner@gmail.com
-    description:  "The one theme is another web theme design by PIZn."
+    name:         SimonMYSun
+    email:        simonmysun@gmail.com
+    description:  "Simon MY Sun's blog"
 
-about:            "I am PIZn.I love all kinds of design, attention to the Internet dynamic, dedicated web front development, learn UI and UED."
+about:            "Learning maths, TCS, and .etc. "
 follow:
     email:        simonmysun@gmail.com
     github:       https://github.com/simonmysun
     twitter:      http://www.twitter.com/simonmysun
-    google:       https://plus.google.com/
-    facebook:     http://facebook.com/simonmysun
-description:      Just another blog theme -- the One
+    google:       https://plus.google.com/116961333351449443401
+    facebook:     https://facebook.com/simonmysun
+description:      The Blog of MY Sun 
 
 indexContent:     true
-imageLink:        http://www.pizn.net/static/images/20121109Monutain.jpg
+imageLink:        http://hdn.xnimg.cn/photos/hdn521/20130620/2210/h_large_j3zZ_b2f5000005b1113e.jpg
 
 
 style:            /css/style.css
-blogName:         theOne 
-blogDesc:         Just another theme
+blogName:         SimonMYSun 
+blogDesc:         Life Journal here
 favicon:          /favicon.ico
 theme:            default
+
+comments :
+
+provider : disqus
+
+disqus :
+
+short_name : tiansj
 
 disqus:           simonmysunblog   
 
