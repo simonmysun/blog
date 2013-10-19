@@ -7,7 +7,7 @@ date: Index
         <h2 class="post-title"><a href="{{ site.baseurl }}{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h2>
         <p class="time"><time pubdate="{{ rpost.date }}">{{ rpost.date | date_to_string }}</time></p>
         {% if site.indexContent == true %}
-        {{ rpost.content }}
+        {{ rpost.content | truncatewords:50 }}
         {% else %}
         <p>{{ rpost.description }}</p>
         {% endif %}
