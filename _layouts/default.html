@@ -2,24 +2,121 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="{{ site.baseurl }}{{ site.style }}" type="text/css" />
-    <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="{{ site.feed }}" />
+    <link rel="stylesheet" href="{{ site.baseurl }}css/pure-min.css" type="text/css" />
+	<link rel="stylesheet" href="{{ site.baseurl }}css/baby-blue.css" type="text/css"/>
+	<link rel="stylesheet" href="{{ site.baseurl }}css/style.css" type="text/css"/>
+
+	<link rel="alternate" type="application/atom+xml" title="Recent Entries" href="{{ site.feed }}" />
     <link rel="shortcut icon" href="{{ site.baseurl }}{{ site.favicon }}" type="image/x-icon" />
+	{{ site.sitestatics }}
 </head>
 <body>
-<div class="container">
-	<div class="header">
-		<h1>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</h1>
-	</div>
-	<div class="content">
-		{{ content }}
-	</div>
-	<div class="footer">
-		<p>{{ site.copyright }}</p>
-	</div>
+    <div class="pure-g-r" id="layout">
+        <a href="#menu" id="menuLink" class="pure-menu-link">
+    <span></span>
+</a>
+
+<div class="pure-u" id="menu">
+    <div class="pure-menu pure-menu-open color-white">
+        <a class="pure-menu-heading" href="#">MY Sun</a>
+        <ul>
+            <li class="color-blue ">
+                <a href="{{ site.baseurl }}">Home</a>
+			</li> 
+
+			<li class="color-purple ">
+                <a href="{{ site.baseurl }}agenda.html">Agenda</a>
+			</li> 
+          
+            <li class="color-green ">
+                <a href="{{ site.baseurl }}CV.pdf">CV</a>
+			</li>
+          
+            <li class="color-red ">
+                <a href="{{ site.baseurl }}projects.html">Projects</a>
+			</li>
+
+			<li class="color-orange ">
+                <a href="{{ site.baseurl }}archives.html">Archives</a>
+			</li>
+          
+            <li class="color-yellow ">
+                <a href="{{ site.baseurl }}follow.html">Follow</a>
+			</li>
+        </ul>
+    </div>
 </div>
-{{ site.sitestatics }}
+
+
+        <div class="pure-u-1" id="main">
+
+            
+
+
+
+
+
+<div class="header">
+    <h1>{{ rpost.title }}</h1>
+
+  
+    <h2>{{ rpost.date }}</h2>
+  
+</div>
+
+
+<div class="content">
+
+
+	{{ content }}
+
+
+</div>
+
+<div class="legal pure-g-r">
+    <div class="pure-u-2-5">
+        <div class="l-box">
+            <p class="legal-license">
+                This site is built with &lt;3 using Pure v0.3.0<br>
+                All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise.
+            </p>
+        </div>
+    </div>
+
+    <div class="pure-u-1-5">
+        <div class="l-box legal-logo">
+            <a href="http://yuilibrary.com/">
+                <img src="/img/logo-footer.png" height="30" width="65"
+                     alt="YUI logo">
+            </a>
+        </div>
+    </div>
+
+    <div class="pure-u-2-5">
+        <div class="l-box">
+            <ul class="legal-links">
+                <li><a href="https://github.com/yui/pure/">GitHub Project</a></li>
+                <li><a href="http://yuilibrary.com/security/">Security Contact Info</a></li>
+            </ul>
+
+            <p class="legal-copyright">
+                &copy; 2013 Yahoo! Inc. All rights reserved.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+
+    
+    
+
+  
+    <script src="js/rainbow-min.js"></script>
 </body>
 </html>
+
