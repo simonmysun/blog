@@ -4,7 +4,7 @@ markdown:         rdiscount
 pygments:         true
 paginate:         4
 
-title:            MY Sun's blog
+title:            MY Sun
 url:              http://simonmysun.github.com/blog
 feed:             /atom.xml
 author:
