@@ -13,6 +13,7 @@ $(window).scroll(function(){
 	var cmt_loc = parseFloat($(this).html());
 	if(cmt_loc >= (scrollPercent - halfPagePercent) && cmt_loc <= (scrollPercent + halfPagePercent)) {
 	    $(this).parent().parent().fadeIn();
+	    $(this).parent().parent().find("*").show();
 	}
 	else {
 	    $(this).parent().parent().fadeOut();
