@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: 感觉真是渣爆了
 ---
 
