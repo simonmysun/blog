@@ -12,3 +12,12 @@ body {
 	width: 85%;
 }
 
+.bullet {
+	width: 250px;
+	height: 150px;
+	padding: 2px;
+	background: #fff;
+	border: solid 5px #e54144;
+	overflow: hidden;
+	position: absolute;
+}
