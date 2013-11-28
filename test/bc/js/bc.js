@@ -1,3 +1,5 @@
+var scrollPercent;
+
 $(window).scroll(function(){
     var s = $(window).scrollTop(),
     d = $(document).height(),
@@ -10,10 +12,10 @@ $(window).scroll(function(){
     $(".uyan_cmt_txt").each(function(){
 	var cmt_loc = parseFloat($(this).html());
 	if(cmt_loc >= (scrollPercent - halfPagePercent) && cmt_loc <= (scrollPercent + halfPagePercent)) {
-	    $(this).parent().parent().show();
+	    $(this).parent().parent().fadeIn();
 	}
 	else {
-	    $(this).parent().parent().hide();
+	    $(this).parent().parent().fadeOut();
 	}
 	return true;
     });
@@ -22,4 +24,5 @@ $(window).scroll(function(){
 
 });
 
-$("#uyan_cmt_list").children().each(function(){$(this).hide();});
+
+$("#uyan_cmt_btn").attr("onclick",'$("#uyan_comment")[0].value=scrollPercent+"L_"+$("#uyan_comment")[0].value;UYAN.addCmt(this);');
