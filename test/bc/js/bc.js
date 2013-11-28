@@ -1,18 +1,18 @@
 var scrollPercent;
 
 var showComment = function(c) {
-    $(c).parent().parent().fadeIn();
+    $(c).parent().parent().show(150);
 }
 
 var hideComment = function(c) {
-    $(c).parent().parent().fadeOut();
+    $(c).parent().parent().hide(150);
 }
 
 var bullet = function(b) {
     //$(b).addClass("bullet");
-    //$("#bc-content").after($(b).clone);
+    //$("#bc-content").after($(b).clone());
     //$(b).removeClass("bullet");
-    //$(".bullet").fadeOut();
+    //$(".bullet").fadeOut(5000,function(){$(this).remove();});
 }
 
 var testBullet = function() {
@@ -33,17 +33,9 @@ $(window).scroll(function(){
     var s = $(window).scrollTop(),
     d = $(document).height(),
     c = $(window).height();
-    
     scrollPercent = (s / (d - c)) * 100;
-
     halfPagePercent = (c / d) * 50;
-
     testBullet();
-
-
     //console.log("Current scroll percent range: [", (scrollPercent - halfPagePercent), (scrollPercent + halfPagePercent)),"]";
-    
     $("#uyan_cmt_btn").attr("onclick",'$("#uyan_comment")[0].value=scrollPercent+"L_"+$("#uyan_comment")[0].value;UYAN.addCmt(this);');
-
-
 });
