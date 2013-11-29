@@ -10,7 +10,7 @@ var hideComment = function(c) {
 
 var bullet = function(b) {
     console.log(b);
-    $("#bc-content").append('<div class="bullet">' + b + '</div>');
+    $("#bc-content").append('<div class="bullet" style="top: ' + $(window).scrollTop + Math.random()*($(window.height)-140) + 'px">' + b + '</div>');
     $(".bullet").animate({left:'250px'},function(){
 	$(".bullet").remove();
     });
