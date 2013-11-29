@@ -10,10 +10,13 @@ var hideComment = function(c) {
 
 var bullet = function(b) {
     console.log(b);
-    var randHeight = ($(window).scrollTop() + Math.random()*($(window).height()-140));
+    var randHeight = ($(window).scrollTop() + Math.random()*($(window).height() - 200));
+    var totWidth = $("#bc-content").width();
     $("#bc-content").append('<div class="bullet" style="top: ' + randHeight + 'px">' + b + '</div>');
-    $(".bullet").animate({left:'250px'},function(){
-	$(".bullet").remove();
+    $(".bullet").animate({left:(totWidth / 2) + 'px'},function(){
+	$(".bullet").animate({left:(totWidth + 200) + 'px'},function(){
+	    $(".bullet").remove();
+	});
     });
 }
 
