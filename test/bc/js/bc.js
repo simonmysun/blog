@@ -9,10 +9,11 @@ var hideComment = function(c) {
 }
 
 var bullet = function(b) {
-    //$(b).addClass("bullet");
-    //$("#bc-content").after($(b).clone());
-    //$(b).removeClass("bullet");
-    //$(".bullet").fadeOut(5000,function(){$(this).remove();});
+    console.log(b);
+    $("#bc-content").append('<div class="bullet">' + b + '</div>');
+    $(".bullet").animate({left:'250px'},function(){
+	$(".bullet").remove();
+    });
 }
 
 var testBullet = function() {
@@ -20,7 +21,7 @@ var testBullet = function() {
 	var cmt_loc = parseFloat($(this).html());
 	if(cmt_loc >= (scrollPercent - halfPagePercent) && cmt_loc <= (scrollPercent + halfPagePercent)) {
 	    showComment(this);
-	    bullet(this);
+	    bullet($(this).html);
 	}
 	else {
 	    hideComment(this);
@@ -38,4 +39,6 @@ $(window).scroll(function(){
     testBullet();
     //console.log("Current scroll percent range: [", (scrollPercent - halfPagePercent), (scrollPercent + halfPagePercent)),"]";
     $("#uyan_cmt_btn").attr("onclick",'$("#uyan_comment")[0].value=scrollPercent+"L_"+$("#uyan_comment")[0].value;UYAN.addCmt(this);');
+    
+    debugBullet();
 });

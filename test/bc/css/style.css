@@ -4,7 +4,9 @@ body {
 
 #bc-content {
 	font-size: 300%;
-	padding: 5px;
+	padding: 5px 15px 70px 15px ;
+	overflow: hidden;
+	position: absolute;
 }
 
 .bc-post {
@@ -16,8 +18,6 @@ body {
 	width: 250px;
 	height: 150px;
 	padding: 2px;
-	background: #fff;
-	border: solid 5px #e54144;
-	overflow: hidden;
+	background: #f0f;
 	position: absolute;
 }
