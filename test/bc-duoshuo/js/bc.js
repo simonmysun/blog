@@ -97,6 +97,7 @@ var clear = function() {
     $(".ds-login-buttons").remove();
     $(".ds-comments-info").remove();
     $(".ds-comment-footer").remove();
+    #(".ds-toolbar-buttons").remove();
 }
 
 $(window).scroll(function(){
