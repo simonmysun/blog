@@ -1,4 +1,4 @@
-xvar scrollPercent, halfPagePercent;
+var scrollPercent, halfPagePercent;
 
 var allBullets = new Array();
 var flyingBullet = new Array();
