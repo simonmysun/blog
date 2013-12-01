@@ -1,4 +1,4 @@
-var scrollPercent, halfPagePercent;
+var scrollPercent, halfPagePercent, totWidth;
 
 var allBullets = new Array();
 var flyingBullet = new Array();
@@ -42,7 +42,6 @@ var bulletFly = function(b) {
     console.log(b);
     if(in_(b.loc, (scrollPercent - halfPagePercent), (scrollPercent + halfPagePercent))&&b.flying==false) {
 	var randHeight = ($(window).scrollTop() + Math.random()*($(window).height() - 200));
-	var totWidth = $("#bc-content").width();
 	$("#bc-content").append('<div class="bullet" id="' + b.id + '" style="left:-300px;top:' + randHeight + 'px;">' + b.content + '</div>');    
 	b.flying = true;
 	flyIn(b);
@@ -97,13 +96,25 @@ var clear = function() {
     $(".ds-login-buttons").remove();
     $(".ds-comments-info").remove();
     $(".ds-comment-footer").remove();
-    #(".ds-toolbar-buttons").remove();
+    $(".ds-toolbar-buttons").remove();
+    $("#bs-bc-navbar-collapse-1").append($(".ds-replybox").detach());
+    $(".ds-replybox").attr("id","my-reply-box");
+    $(".ds-replybox").removeClass();
+    $(".ds-textarea-wrapper.ds-rounded-top").addClass("col-xs-8 col-sm-9 col-md-9 col-lg-8");
+    $(".ds-post-toolbar").addClass("col-xs-4 col-sm-3 col-md-3 col-lg-4");
+    
+    $("#my-reply-box").find("form").addClass("navbar-form navbar-left form-fill");
+    $("#my-reply-box").find("textarea").addClass("bullet-sender");
+    $("#my-reply-box").find("a").remove();
+    $(".ds-hidden-text").css("display","none");
+    $(".ds-post-button").addClass("btn btn-block");
 }
 
 $(window).scroll(function(){
     var s = $(window).scrollTop(),
     d = $(document).height(),
     c = $(window).height();
+    totWidth = $("#bc-content").width();
     scrollPercent = (s / (d - c)) * 100;
     halfPagePercent = (c / d) * 50;
     checkBullet();

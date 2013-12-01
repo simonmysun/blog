@@ -25,3 +25,11 @@ body {
 	font-size: 18px;
 	overflow: hidden;
 }
+
+.bullet-input {
+	width: 100%;
+}
+
+.form-fill {
+	width: 100%;
+}
