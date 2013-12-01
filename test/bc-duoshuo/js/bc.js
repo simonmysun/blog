@@ -1,4 +1,4 @@
-xvar scrollPercent, halfPagePercent;
+var scrollPercent, halfPagePercent;
 
 var allBullets = new Array();
 var flyingBullet = new Array();
@@ -21,6 +21,23 @@ var hideComment = function(c) {
     $(c).parent().parent().hide(150);
 }
 
+var flyAway = function(b) {
+    $("#" + b.id).remove();
+    b.flying = false;
+}
+
+var flyOut = function(b) {
+    $("#"+ b.id).animate({left:((totWidth / 2) + 'px')}, 1000, flyAway(b));
+}
+
+var sleep = function(b) {
+    setTimeout("flyOut(b);",1000)
+}
+
+var flyIn = function(b) {
+    $("#"+ b.id).animate({left:((totWidth + 200) + 'px')}, 1000, flyOut(b));
+}
+
 var bulletFly = function(b) {
     console.log(b);
     if(in_(b.loc, (scrollPercent - halfPagePercent), (scrollPercent + halfPagePercent))&&b.flying==false) {
@@ -28,19 +45,6 @@ var bulletFly = function(b) {
 	var totWidth = $("#bc-content").width();
 	$("#bc-content").append('<div class="bullet" id="' + b.id + '" style="left:-300px;top:' + randHeight + 'px;">' + b.content + '</div>');    
 	b.flying = true;
-	var flyAway = function(b) {
-	    $("#" + b.id).remove();
-	    b.flying = false;
-	}
-	var flyOut = function(b) {
-	    $("#"+ b.id).animate({left:((totWidth / 2) + 'px')}, 1000, flyAway(b));
-	}
-	var sleep = function(b) {
-	    setTimeout("flyOut(b);",1000)
-	}
-	var flyIn = function(b) {
-	    $("#"+ b.id).animate({left:((totWidth + 200) + 'px')}, 1000, flyOut(b));
-	}
 	flyIn(b);
     }
 }
