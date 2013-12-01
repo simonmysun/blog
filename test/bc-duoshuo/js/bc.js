@@ -104,7 +104,7 @@ var clear = function() {
     $(".ds-post-toolbar").addClass("col-xs-4 col-sm-3 col-md-3 col-lg-4");
     
     $("#my-reply-box").find("form").addClass("navbar-form navbar-left form-fill");
-    $("#my-reply-box").find("textarea").addClass("bullet-sender");
+    $("#my-reply-box").find("textarea").addClass("bullet-input");
     $("#my-reply-box").find("a").remove();
     $(".ds-hidden-text").css("display","none");
     $(".ds-post-button").addClass("btn btn-block");
