@@ -1,6 +1,6 @@
 var scrollPercent;
 
-var bullets = new Array()
+var bullets = new Array();
 
 var showComment = function(c) {
     $(c).parent().parent().show(150);
@@ -27,7 +27,6 @@ var checkBullet = function() {
 	var cmt_loc = parseFloat($(this).html());
 	if(cmt_loc >= (scrollPercent - halfPagePercent) && cmt_loc <= (scrollPercent + halfPagePercent)) {
 	    showComment(this);
-	    bulletFly($(this));
 	}
 	else {
 	    hideComment(this);
