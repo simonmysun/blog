@@ -118,13 +118,12 @@ $(window).scroll(function(){
     scrollPercent = (s / (d - c)) * 100;
     halfPagePercent = (c / d) * 50;
     checkBullet();
-    clear();
+    makeBtn();
+    makeBulletList();
 });
 
 $(document).ready(function(){
     clear();
-    makeBtn();
-    makeBulletList();
     $(window).scroll();
 });
 
