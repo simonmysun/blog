@@ -72,12 +72,13 @@ $(window).scroll(function(){
     checkBullet();
 });
 
+var bp1 = bulletPool.createNew('bc-content');
+bp1.init();
+
 $(document).ready(function(){
     clear();
     $(window).scroll();
     makeBtn();
-    bp1 = bulletPool.createNew('bc-content');
-    bp1.init();
     window.setInterval(bp1.refresh(),refresh);
 });
 
