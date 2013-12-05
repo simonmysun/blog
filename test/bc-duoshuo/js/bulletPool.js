@@ -9,8 +9,13 @@ var bulletPool = {
 	bp.canvas = window;
 
 	bp.init = function() {
+	    bp.changeSize();
 	    bp.bulletList = new Array();
 	    bp.rows = new Array();
+	    for(x=0;x<maxRow;x++) {
+		bp.row[x] = 1;
+	    }
+	    bp.rows[]
 	    bp.flying = new Array();
 	    bp.wait = new Array();
 	}
