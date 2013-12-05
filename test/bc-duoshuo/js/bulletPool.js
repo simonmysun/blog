@@ -8,6 +8,13 @@ var bulletPool = {
 	//bp.canvas = '#' + id;
 	bp.canvas = window;
 
+	bp.init = function() {
+	    bp.bulletList = new Array();
+	    bp.rows = new Array();
+	    bp.flying = new Array();
+	    bp.wait = new Array();
+	}
+
 	bp.bulletList = new Array();
 	bp.rows = new Array();
 	bp.flying = new Array();
@@ -39,11 +46,11 @@ var bulletPool = {
 	bp.add = function() {
 	    $(".ds-post").each(function() {
 		var bullet = new Object();
-		bullet.id = $(b).attr("data-post-id") + "";
-		bullet.loc = parseFloat($(b).find("p").html());
-		bullet.content = $(b).find("p").html().replace(/.*L_/,"");
+		bullet.id = $(this).attr("data-post-id") + "";
+		bullet.loc = parseFloat($(this).find("p").html());
+		bullet.content = $(this).find("p").html().replace(/.*L_/,"");
 		bullet.flying = false;
-		bp.bulletList[$(b).attr("data-post-id")] = bullet;
+		bp.bulletList[$(this).attr("data-post-id")] = bullet;
 		return true;
 	    });
 	};
@@ -56,7 +63,7 @@ var bulletPool = {
 	}
 
 	bp.launch = function() {
-	    var loc = getRow();
+	    var loc = bp.getRow();
 	    var flag = 1 ;
 	    while(loc != -1 && flag == 1) {
 		flag = 0;
@@ -66,7 +73,7 @@ var bulletPool = {
 		    flag = 1;
 		    break;
 		}
-		loc = getRow();
+		loc = bp.getRow();
 	    }
 	    flag = 1;
 	    while(loc != -1 && flag == 1) {
@@ -81,7 +88,7 @@ var bulletPool = {
 			bp.queue[x] = 1;
 		    }
 		}
-		loc = getRow();
+		loc = bp.getRow();
 	    }
 	};
 

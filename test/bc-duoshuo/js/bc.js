@@ -1,4 +1,4 @@
-var speed=[1,2,1];
+var speed=1;
 var refresh=40;
 
 var scrollPercent = function() {
@@ -20,7 +20,15 @@ var in_ = function(x, a, b) {
     else {
 	return false;
     }
-}x
+}
+
+var showComment = function(c) {
+    $(c).parent().parent().show(150);
+}
+
+var hideComment = function(c) {
+    $(c).parent().parent().hide(150);
+}
 
 var checkBullet = function() {
     $(".ds-comment-body").find("p").each(function() {
@@ -37,7 +45,7 @@ var checkBullet = function() {
 
 var makeBtn = function() {
     $(".ds-post-button").click(function(){
-	$(".ds-textarea-wrapper.ds-rounded-top").find("textarea").val(scrollPercent + "L_" + $(".ds-textarea-wrapper.ds-rounded-top").find("textarea").val());
+	$(".ds-textarea-wrapper.ds-rounded-top").find("textarea").val(scrollPercent() + "L_" + $(".ds-textarea-wrapper.ds-rounded-top").find("textarea").val());
     });
 }
 
@@ -62,13 +70,14 @@ var clear = function() {
 
 $(window).scroll(function(){
     checkBullet();
-    makeBtn();
 });
 
 $(document).ready(function(){
     clear();
     $(window).scroll();
-    var bp1 = bulletPool.createNew('bc-content');
+    makeBtn();
+    bp1 = bulletPool.createNew('bc-content');
+    bp1.init();
     window.setInterval(bp1.refresh(),refresh);
 });
 
