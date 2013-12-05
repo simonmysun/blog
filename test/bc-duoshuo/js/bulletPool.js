@@ -12,7 +12,7 @@ var bulletPool = {
 	    bp.changeSize();
 	    bp.bulletList = new Array();
 	    bp.rows = new Array();
-	    for(x=0;x<maxRow;x++) {
+	    for(x=0;x<bp.size.maxRow;x++) {
 		bp.row[x] = 1;
 	    }
 	    bp.flying = new Array();
