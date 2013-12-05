@@ -1,6 +1,3 @@
-var speed=[1,2,1];
-var refresh=40;
-
 var scrollPercent = function() {
     return ($(window).scrollTop() / ($(document).height() - $(window).height())) * 100;
 }
@@ -13,6 +10,53 @@ var totWidth = function() {
     return $("#bc-content").width();
 }
 
+var allBullets = new Array();
+var flyingBullet = new Array();
+
+var addBullet = function(b) {
+    var bullet = new Object();
+    bullet.id = $(b).attr("data-post-id") + "";
+    bullet.loc = parseFloat($(b).find("p").html());
+    bullet.content = $(b).find("p").html().replace(/.*L_/,"");
+    bullet.flying = false;
+    allBullets[$(b).attr("data-post-id")] = bullet;
+}
+
+var showComment = function(c) {
+    $(c).parent().parent().show(150);
+}
+
+var hideComment = function(c) {
+    $(c).parent().parent().hide(150);
+}
+
+var flyAway = function(b) {
+    $("#" + b.id).remove();
+    b.flying = false;
+}
+
+var flyOut = function(b) {
+    $("#"+ b.id).animate({left:((totWidth / 2) + 'px')}, 1000, flyAway(b));
+}
+
+var sleep = function(b) {
+    setTimeout("flyOut(b);",1000)
+}
+
+var flyIn = function(b) {
+    $("#"+ b.id).animate({left:((totWidth + 200) + 'px')}, 1000, flyOut(b));
+}
+
+var bulletFly = function(b) {
+    console.log(b);
+    if(in_(b.loc, (scrollPercent - halfPagePercent), (scrollPercent + halfPagePercent))&&b.flying==false) {
+	var randHeight = ($(window).scrollTop() + Math.random()*($(window).height() - 200));
+	$("#bc-content").append('<div class="bullet" id="' + b.id + '" style="left:-300px;top:' + randHeight + 'px;">' + b.content + '</div>');    
+	b.flying = true;
+	flyIn(b);
+    }
+}
+
 var in_ = function(x, a, b) {
     if(x>=a&&x<=b) {
 	return true;
@@ -20,7 +64,7 @@ var in_ = function(x, a, b) {
     else {
 	return false;
     }
-}x
+}
 
 var checkBullet = function() {
     $(".ds-comment-body").find("p").each(function() {
@@ -33,6 +77,9 @@ var checkBullet = function() {
 	}
 	return true;
     });
+    for(b in allBullets) {
+	bulletFly(allBullets[b]);
+    }
 }
 
 var makeBtn = function() {
@@ -41,6 +88,18 @@ var makeBtn = function() {
     });
 }
 
+var debug = function(a) {
+    for(x in a) {
+	console.log(a[x]);
+    }
+}
+
+var makeBulletList = function() {
+    $(".ds-post").each(function() {
+	addBullet(this);
+	return true;
+    });
+}
 
 var clear = function() {
     $(".ds-login-buttons").remove();
@@ -63,13 +122,12 @@ var clear = function() {
 $(window).scroll(function(){
     checkBullet();
     makeBtn();
+    makeBulletList();
 });
 
 $(document).ready(function(){
     clear();
     $(window).scroll();
-    var bp1 = bulletPool.createNew('bc-content');
-    window.setInterval(bp1.refresh(),refresh);
 });
 
 

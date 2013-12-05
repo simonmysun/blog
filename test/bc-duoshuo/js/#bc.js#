@@ -1,4 +1,4 @@
-var speed=[1,2,1];
+var speed=1;
 var refresh=40;
 
 var scrollPercent = function() {
