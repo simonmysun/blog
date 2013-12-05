@@ -79,7 +79,7 @@ $(document).ready(function(){
     clear();
     $(window).scroll();
     makeBtn();
-    window.setInterval(bp1.refresh(),refresh);
+    bp1.refresh()
 });
 
 
