@@ -1,5 +1,3 @@
-var speed=1;
-
 var scrollPercent = function() {
     return ($(window).scrollTop() / ($(document).height() - $(window).height())) * 100;
 }

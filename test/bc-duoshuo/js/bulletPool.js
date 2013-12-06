@@ -124,6 +124,7 @@ var bulletPool = {
 		if (left + offset < 5) {
 		    bp.bulletList[$(bullet).attr('id')].flying = false;
 		    bp.flying[$(bullet).attr('id')] = undefined;
+		    $('#' + bullet.id).remove();
 		}
 	    });
 	    for(x in bp.row) {
