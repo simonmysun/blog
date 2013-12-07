@@ -73,10 +73,12 @@ var bp1 = bulletPool.createNew('bc-content');
 bp1.init();
 
 $(document).ready(function(){
-    clear();
-    $(window).scroll();
-    makeBtn();
-    setTimeout(function(){bp1.refresh()},40);
+    setTimeout(function(){
+	clear();
+	$(window).scroll();
+	makeBtn();
+	bp1.refresh();
+    },4000);
 });
 
 
