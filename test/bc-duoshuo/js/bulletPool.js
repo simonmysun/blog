@@ -65,7 +65,10 @@ var bulletPool = {
 
 	bp.fly = function(x,loc) {
 	    console.log("fly x");
-	    bp.flying[x] = loc;
+	    var b = {};
+	    b.loc = loc;
+	    b.speed = bp.speed;
+	    bp.flying[x] = b;
 	    $("#bc-content").append('<div class="bullet" id="' + x + '" style="left:' + bp.size.width + 'px;top:' + (bp.size.top + loc * 30) + 'px;">' + bp.bulletList[x].content + '</div>'); 
 	    bp.row[loc] = $("#" + x)[0].offsetWidth + 15;
 	    bp.bulletList[x].flying = true;
@@ -77,7 +80,7 @@ var bulletPool = {
 	    while(loc != -1 && flag == 1) {
 		flag = 0;
 		for(x in bp.wait) {
-		    if(bp.wait[x]!=undefined) {
+		    if(bp.wait[x] != undefined) {
 			bp.fly(x,loc);
 			bp.wait[x] = undefined;
 			flag = 1;
@@ -90,11 +93,14 @@ var bulletPool = {
 	    while(loc != -1 && flag >= 0) {
 		flag = -1;
 		for(x in bp.bulletList) {
-		    if(bp.bulletList[x]!=undefined){
+		    if(bp.bulletList[x]!=undefined) {
 			if(bp.bulletList[x].flying == false && in_(bp.bulletList[x].loc, (scrollPercent() - halfPagePercent()), (scrollPercent() + halfPagePercent()))) {
 			    bp.fly(x,loc);
 			    flag = 2;
 			    break;
+			}
+			if(bp.bulletList[x].flying == true && in_(bp.bulletList[x].loc, (scrollPercent() - halfPagePercent()), (scrollPercent() + halfPagePercent())) == false) {
+			    bp.flying[x].speed = 20;
 			}
 		    }
 		}
@@ -114,9 +120,9 @@ var bulletPool = {
 	    bp.launch();
 	    
 	    $('.bullet').css('left',function(index,left) {
-		return (parseInt(left) - bp.speed) + 'px';
+		return (parseInt(left) - bp.flying[$(this).attr('id')].speed) + 'px';
 	    });
-	    $('.bullet').css('top',function(){return((bp.size.top + 30 * (bp.flying[$(this).attr('id')])) + 'px');});
+	    $('.bullet').css('top',function(){return((bp.size.top + 30 * (bp.flying[$(this).attr('id')].loc)) + 'px');});
 	    $('.bullet').each(function(index,bullet) {
 		console.log("fly");
 		var left =parseInt(bullet.style.left); 
