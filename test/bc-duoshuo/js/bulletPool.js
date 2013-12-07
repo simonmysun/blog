@@ -64,7 +64,7 @@ var bulletPool = {
 	};
 
 	bp.fly = function(x,loc) {
-	    console.log("fly x");
+	    //console.log("fly x");
 	    var b = {};
 	    b.loc = loc;
 	    b.speed = bp.speed;
@@ -120,7 +120,7 @@ var bulletPool = {
 		$('.bullet').hide(150);
 	    }
 	    
-	    console.log("draw");
+	    //console.log("draw");
 	    
 	    bp.changeSize();
 	    bp.add();

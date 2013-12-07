@@ -61,6 +61,7 @@ var clear = function() {
     $("#my-reply-box").find("form").addClass("navbar-form navbar-left form-fill");
     $("#my-reply-box").find("textarea").addClass("bullet-input");
     $("#my-reply-box").find("a").remove();
+    $("#my-reply-box").append('<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><input type="checkbox" id="showbullet"></div>');
     $(".ds-hidden-text").css("display","none");
     $(".ds-post-button").addClass("btn btn-block");
 }
