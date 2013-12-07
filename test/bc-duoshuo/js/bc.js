@@ -52,10 +52,10 @@ var clear = function() {
     $(".ds-comments-info").remove();
     $(".ds-comment-footer").remove();
     $(".ds-toolbar-buttons").remove();
-    $("#bs-bc-navbar-collapse-1").append($(".ds-replybox").detach());
+    $("#bs-bc-navbar-collapse-1").prepend($(".ds-replybox").detach());
     $(".ds-replybox").attr("id","my-reply-box");
     $(".ds-replybox").removeClass();
-    $(".ds-textarea-wrapper.ds-rounded-top").addClass("col-xs-8 col-sm-9 col-md-9 col-lg-8");
+    $(".ds-textarea-wrapper.ds-rounded-top").addClass("col-xs-7 col-sm-8 col-md-8 col-lg-7");
     $(".ds-post-toolbar").addClass("col-xs-4 col-sm-3 col-md-3 col-lg-4");
     
     $("#my-reply-box").find("form").addClass("navbar-form navbar-left form-fill");

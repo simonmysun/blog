@@ -112,6 +112,13 @@ var bulletPool = {
 	};
 
 	bp.refresh = function() {
+
+	    if($('#showbullet').attr('checked')==true){
+		$('.bullet').show(150);
+	    }
+	    else {
+		$('.bullet').hide(150);
+	    }
 	    
 	    console.log("draw");
 	    
