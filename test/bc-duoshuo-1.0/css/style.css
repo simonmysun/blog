@@ -9,19 +9,23 @@ body {
 	position: absolute;
 }
 
-.bc-post {
-	margin: auto;
-	width: 85%;
+#bc-post {
+    width: 100%;
+    overflow:hidden;
 }
 
 .bullet {
-	width: 300px;
-	height: 150px;
-	padding: 2px;
-	background: #fff;
-	opacity: 0.8;
+	height: 28px;
+	padding: 1px;
 	position: absolute;
-	border: 1px solid #bbb;
-	left: -300px;
 	font-size: 18px;
+	overflow: hidden;
+}
+
+.bullet-input {
+	width: 100%;
+}
+
+.form-fill {
+	width: 100%;
 }

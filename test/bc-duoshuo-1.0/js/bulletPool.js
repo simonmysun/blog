@@ -2,7 +2,9 @@ var bulletPool = {
 /*
   bullet id -> content, length, flying.. etc.
 */
-    createNew: function(id) {
+    var version = 1.0;
+    
+    var createNew: function(id) {
 	var bp = {};
 
 	bp.canvas = '#' + id;
@@ -52,10 +54,8 @@ var bulletPool = {
 	bp.add = function() {
 	    $(".ds-post").each(function() {
 		if(bp.bulletList[$(this).attr("data-post-id")] == undefined) {
-		    var bullet = new Object();
+		    var bullet = eval('' + $(this).find("p").html() + '');
 		    bullet.id = $(this).attr("data-post-id") + "";
-		    bullet.loc = parseFloat($(this).find("p").html());
-		    bullet.content = $(this).find("p").html().replace(/.*L_/,"");
 		    bullet.flying = false;
 		    bp.bulletList[$(this).attr("data-post-id")] = bullet;
 		}
@@ -63,15 +63,11 @@ var bulletPool = {
 	    });
 	};
 
-	bp.fly = function(x,loc) {
-	    //console.log("fly x");
-	    var b = {};
-	    b.loc = loc;
-	    b.speed = bp.speed;
-	    bp.flying[x] = b;
-	    $("#bc-content").append('<div class="bullet" id="' + x + '" style="left:' + bp.size.width + 'px;top:' + (bp.size.top + loc * 30) + 'px;">' + bp.bulletList[x].content + '</div>'); 
-	    bp.row[loc] = $("#" + x)[0].offsetWidth + 15;
-	    bp.bulletList[x].flying = true;
+	bp.fly = function(bullet) {
+	    bp.flying[bullet.id] = bullet;
+	    $("#bc-content").append('<div class="bullet" id="' + x + '" style="left:' + bp.size.width + 'px;top:' + (bp.size.top + bullet.loc * 30) + 'px;">' + '<div style="' + bullet.style + '">' + bp.bulletList[x].content + '</div></div>'); 
+	    bp.row[loc] = $("#" + bullet.id)[0].offsetWidth + 15;
+	    bp.bulletList[bullet.id].flying = true;
 	}
 
 	bp.launch = function() {
@@ -81,7 +77,7 @@ var bulletPool = {
 		flag = 0;
 		for(x in bp.wait) {
 		    if(bp.wait[x] != undefined) {
-			bp.fly(x,loc);
+			bp.fly(bp.wait[x]);
 			bp.wait[x] = undefined;
 			flag = 1;
 			break;
@@ -95,7 +91,7 @@ var bulletPool = {
 		for(x in bp.bulletList) {
 		    if(bp.bulletList[x]!=undefined) {
 			if(bp.bulletList[x].flying == false && in_(bp.bulletList[x].loc, (scrollPercent() - halfPagePercent()), (scrollPercent() + halfPagePercent()))) {
-			    bp.fly(x,loc);
+			    bp.fly(bp.bulletlist[x]);
 			    flag = 2;
 			    break;
 			}
