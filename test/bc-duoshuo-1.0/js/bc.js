@@ -42,12 +42,16 @@ var checkBullet = function() {
 
 var makeBtn = function() {
     $('.ds-post-button').click(function(){
-	var bullet = {};
-	bullet.content = $('.ds-textarea-wrapper.ds-rounded-top').find('textarea').val();
-	bullet.style = 'background-color:#fff;opacity:0.7;border:1px solid #bbb;font-size:18px';
-	bullet.loc=scrollPercent();
-	bullet.ver=bulletPool.version;
-	$('.ds-textarea-wrapper.ds-rounded-top').find('textarea').val(JSON.stringify(bullet));
+	try{
+	    var tmp = eval('(' + $('.ds-textarea-wrapper.ds-rounded-top').find('textarea').val() + ')');
+	}catch(e){
+	    var bullet = {};
+	    bullet.content = $('.ds-textarea-wrapper.ds-rounded-top').find('textarea').val();
+	    bullet.style = 'background-color:#fff;opacity:0.7;border:1px solid #bbb;font-size:18px';
+	    bullet.loc=scrollPercent();
+	    bullet.ver=bulletPool.version;
+	    $('.ds-textarea-wrapper.ds-rounded-top').find('textarea').val(JSON.stringify(bullet));
+	}
     });
 }
 
