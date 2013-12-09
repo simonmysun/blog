@@ -37,9 +37,9 @@ var bulletPool = {
 
 	bp.changeSize = function() {
 	    bp.size.width = $(bp.canvas).width();
-	    bp.size.height = $(bp.canvas).height();
+	    bp.size.height = $(window).height();
 	    bp.size.top = $(window).scrollTop();
-	    bp.size.maxRow = Math.floor(bp.size.width / 30) - 2;
+	    bp.size.maxRow = Math.floor(bp.size.height / 30) - 5;
 	};
 
 	bp.getRow = function() {
@@ -71,6 +71,7 @@ var bulletPool = {
 	bp.fly = function(bullet,loc) {
 	    bp.flying[bullet.id] = bullet;
 	    bp.flying[bullet.id].speed = 1;
+	    bp.flying[bullet.id].row=loc;
 	    $("#bc-content").append('<div class="bullet" id="' + x + '" style="left:' + bp.size.width + 'px;top:' + (bp.size.top + loc * 30) + 'px;">' + '<div style="' + bullet.style + '">' + bp.bulletList[x].content + '</div></div>'); 
 	    bp.row[loc] = $("#" + bullet.id)[0].offsetWidth + 15;
 	    bp.bulletList[bullet.id].flying = true;
@@ -131,7 +132,7 @@ var bulletPool = {
 	    $('.bullet').css('left',function(index,left) {
 		return (parseInt(left) - bp.flying[$(this).attr('id')].speed) + 'px';
 	    });
-	    $('.bullet').css('top',function(){return((bp.size.top + 30 * (bp.flying[$(this).attr('id')].loc)) + 'px');});
+	    $('.bullet').css('top',function(){return((bp.size.top + 30 * (bp.flying[$(this).attr('id')].row)) + 'px');});
 	    $('.bullet').each(function(index,bullet) {
 		console.log("fly");
 		var left =parseInt(bullet.style.left); 
