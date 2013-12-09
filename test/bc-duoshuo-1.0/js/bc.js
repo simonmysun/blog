@@ -84,7 +84,7 @@ $(document).ready(function(){
 	$(window).scroll();
 	makeBtn();
 	bp1.refresh();
-    },400);
+    },4000);
 });
 
 
