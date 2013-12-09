@@ -39,7 +39,7 @@ var bulletPool = {
 	    bp.size.width = $(bp.canvas).width();
 	    bp.size.height = $(bp.canvas).height();
 	    bp.size.top = $(window).scrollTop();
-	    bp.size.maxRow = Math.floor(bp.size.width / 30) - 1;
+	    bp.size.maxRow = Math.floor(bp.size.width / 30) - 2;
 	};
 
 	bp.getRow = function() {
