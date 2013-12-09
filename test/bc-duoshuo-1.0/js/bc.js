@@ -46,7 +46,7 @@ var makeBtn = function() {
 	bullet.content = $('.ds-textarea-wrapper.ds-rounded-top').find('textarea').val();
 	bullet.style = 'background-color:#fff;opacity:0.7;border:1px solid #bbb;font-size:18px';
 	bullet.loc=scrollPercent();
-	bullet.ver=bulletpool.version;
+	bullet.ver=bulletPool.version;
 	$('.ds-textarea-wrapper.ds-rounded-top').find('textarea').val(JSON.stringify(bullet));
     });
 }
@@ -66,7 +66,7 @@ var clear = function() {
     $('#my-reply-box').find('textarea').addClass('bullet-input');
     $('#my-reply-box').find('a').remove();
     $('form.form-fill').addClass('row')
-    $('form.form-fill').append('<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><input type="checkbox" id="showbullet"></div>');
+    $('form.form-fill').append('<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><input type="checkbox" id="showbullet" checked></div>');
     $('.ds-hidden-text').css('display','none');
     $('.ds-post-button').addClass('btn btn-block');
 }

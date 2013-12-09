@@ -3,14 +3,13 @@ body {
 }
 
 #bc-content {
-	zoom: 2;
 	padding: 5px 15px 70px 15px ;
 	overflow: hidden;
 	position: absolute;
 }
 
 #bc-post {
-	width: 100%;
+	max-width: 390px;
 	overflow:hidden;
 }
 
