@@ -2,9 +2,9 @@ var bulletPool = {
 /*
   bullet id -> content, length, flying.. etc.
 */
-    var version = 1.0;
+    version: '1.0',
     
-    var createNew: function(id) {
+    createNew: function(id) {
 	var bp = {};
 
 	bp.canvas = '#' + id;
@@ -54,18 +54,24 @@ var bulletPool = {
 	bp.add = function() {
 	    $(".ds-post").each(function() {
 		if(bp.bulletList[$(this).attr("data-post-id")] == undefined) {
-		    var bullet = eval('' + $(this).find("p").html() + '');
-		    bullet.id = $(this).attr("data-post-id") + "";
-		    bullet.flying = false;
-		    bp.bulletList[$(this).attr("data-post-id")] = bullet;
+		    var bullet;
+		    try{
+			bullet=eval('(' + $(this).find("p").html() + ')');
+			bullet.id = $(this).attr("data-post-id") + "";
+			bullet.flying = false;
+			bp.bulletList[bullet.id] = bullet;
+		    }catch(e){
+			console.log("JSON decode error: "+e.description);
+		    }
 		}
 		return true;
 	    });
 	};
 
-	bp.fly = function(bullet) {
+	bp.fly = function(bullet,loc) {
 	    bp.flying[bullet.id] = bullet;
-	    $("#bc-content").append('<div class="bullet" id="' + x + '" style="left:' + bp.size.width + 'px;top:' + (bp.size.top + bullet.loc * 30) + 'px;">' + '<div style="' + bullet.style + '">' + bp.bulletList[x].content + '</div></div>'); 
+	    bp.flying[bullet.id].speed = 1;
+	    $("#bc-content").append('<div class="bullet" id="' + x + '" style="left:' + bp.size.width + 'px;top:' + (bp.size.top + loc * 30) + 'px;">' + '<div style="' + bullet.style + '">' + bp.bulletList[x].content + '</div></div>'); 
 	    bp.row[loc] = $("#" + bullet.id)[0].offsetWidth + 15;
 	    bp.bulletList[bullet.id].flying = true;
 	}
@@ -77,7 +83,7 @@ var bulletPool = {
 		flag = 0;
 		for(x in bp.wait) {
 		    if(bp.wait[x] != undefined) {
-			bp.fly(bp.wait[x]);
+			bp.fly(bp.wait[x],loc);
 			bp.wait[x] = undefined;
 			flag = 1;
 			break;
@@ -91,7 +97,7 @@ var bulletPool = {
 		for(x in bp.bulletList) {
 		    if(bp.bulletList[x]!=undefined) {
 			if(bp.bulletList[x].flying == false && in_(bp.bulletList[x].loc, (scrollPercent() - halfPagePercent()), (scrollPercent() + halfPagePercent()))) {
-			    bp.fly(bp.bulletlist[x]);
+			    bp.fly(bp.bulletList[x],loc);
 			    flag = 2;
 			    break;
 			}

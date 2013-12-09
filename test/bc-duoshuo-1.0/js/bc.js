@@ -29,7 +29,7 @@ var hideComment = function(c) {
 
 var checkBullet = function() {
     $('.ds-comment-body').find('p').each(function() {
-	var cmt_loc = parseFloat($(this).html());
+	var cmt_loc = eval('(' + $(this).html() + ')').loc;
 	if(in_(cmt_loc, (scrollPercent() - halfPagePercent()), (scrollPercent() + halfPagePercent()))) {
 	    showComment(this);
 	}
@@ -84,7 +84,7 @@ $(document).ready(function(){
 	$(window).scroll();
 	makeBtn();
 	bp1.refresh();
-    },4000);
+    },400);
 });
 
 
