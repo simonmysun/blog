@@ -8,6 +8,10 @@ body {
 	position: absolute;
 }
 
+#bc-container {
+	display: none;
+}
+
 #bc-post {
 	max-width: 390px;
 	overflow:hidden;

@@ -4,21 +4,24 @@ var bulletPool = {
 */
     version: '1.0',
 
-    createNew: function(i) { // return a new object bulletPool
+    createNew: function(id) { // return a new object bulletPool
 	var bp = {};
 
 	bp.canvas = '#' + id; // a place for bullets to fly
 	//bp.canvas = window; // sometimes it's not div which is scrolling
 	bp.fps = 10; // refresh every fps ms
 	bp.speed = 1; // will be deleted
-	bp.duration = 3000; // expected duration of a comment
+	bp.duration = 8000; // expected duration of a comment
 
 	bp.init = function() { // initialization
 	    bp.changeSize();
 	    bp.bulletList = new Array();
 	    bp.row = new Array();
 	    for(x = 0; x < bp.size.maxRow; x++) {
-		bp.row[x] = 0;
+		var r = {};
+		r.tailspeed = 1;
+		r.tailloc = 0;
+		bp.row[x] = r;
 	    }
 	    bp.flying = new Array();
 	    bp.wait = new Array();
@@ -73,26 +76,26 @@ var bulletPool = {
 	    bp.flying[bullet.id] = bullet;
 	    bp.flying[bullet.id].len = $("#" + bullet.id)[0].offsetWidth;
 	    bp.flying[bullet.id].row = r;
-	    $("#bc-content").append('<div class="bullet" id="' + x + '" style="left:' + bp.size.width + 'px;top:' + (bp.size.top + r * 30) + 'px;">' + '<div style="' + bullet.style + '">' + bp.bulletList[x].content + '</div></div>'); 
+	    $("#bc-container").append('<div class="bullet" id="' + x + '" style="left:' + bp.size.width + 'px;top:' + (bp.size.top + r * 30) + 'px;">' + '<div style="' + bullet.style + '">' + bp.bulletList[x].content + '</div></div>'); 
 	    bp.row[r].tailloc = bp.size.width + ($("#" + bullet.id)[0].offsetWidth + 15); // tail location of the tail of the comment 
 	    bp.row[r].tailspeed = ($("#" + bullet.id)[0].offsetWidth + 15)/bp.duratiom; // tailspeed of last comment of current row
 	    bp.bulletList[bullet.id].flying = true;
 	}
 
-	bp.launch = function() { // check and let comments fly. 
-	    var r = bp.getRow();
+	bp.launch = function() { // check and let comments fly
 	    for(x in bp.wait) { // comments in queue go first
 		if(bp.wait[x] != undefined) {
+		    r = bp.getRow((bp.wait[x].len + bp.size.width) / bp.duration);
 		    if(r == -1) {
 			break;
 		    }
 		    bp.fly(bp.wait[x],r);
 		    bp.wait[x] = undefined;
-		    r = bp.getRow();
 		}
 	    }
-	    for(x in bp.bullletList) {
+	    for(x in bp.bulletList) {
 		if(bp.bulletList[x] != undefined) {
+		    r = bp.getRow((bp.bulletList[x].len + bp.size.width) / bp.duration);
 		    if(r == -1) {
 			break;
 		    }
@@ -100,14 +103,14 @@ var bulletPool = {
 			bp.fly(bp.bulletList[x],r);
 		    }
 		    if(bp.bulletList[x].flying == true &&  in_(bulletList[x].loc, (scrollPercent() - halfPagePercent()), (scrollPercent() + halfPagePercent())) == false) {
-			bp.flying[x].len /= 20; // accelerate. 
+			bp.flying[x].len /= 20; // accelerate
 		    }
-		    r = bp.getRow();
 		}
 	    }
 	};
 
 	bp.refresh = function() {
+	    console.log('dd');
 	    if($('#showbullet')[0].checked==true){
 		$('.bullet').show(150);
 		bp.changeSize();
