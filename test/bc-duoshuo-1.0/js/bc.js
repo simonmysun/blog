@@ -6,10 +6,6 @@ var halfPagePercent = function() {
     return ($(window).height() / $(document).height()) * 50;
 }
 
-var totWidth = function() {
-    return $('#bc-content').width();
-}
-
 var in_ = function(x, a, b) {
     if(x>=a&&x<=b) {
 	return true;
@@ -27,7 +23,7 @@ var hideComment = function(c) {
     $(c).parent().parent().hide(150);
 }
 
-var checkBullet = function() {
+var checkComment = function() {
     $('.ds-comment-body').find('p').each(function() {
 	var cmt_loc = eval('(' + $(this).html() + ')').loc;
 	if(in_(cmt_loc, (scrollPercent() - halfPagePercent()), (scrollPercent() + halfPagePercent()))) {
@@ -76,7 +72,7 @@ var clear = function() {
 }
 
 $(window).scroll(function(){
-    checkBullet();
+    checkComment();
 });
 
 var bp1 = bulletPool.createNew('bc-content');
@@ -85,8 +81,8 @@ bp1.init();
 $(document).ready(function(){
     setTimeout(function(){
 	clear();
-	$(window).scroll();
 	makeBtn();
+	$(window).scroll();
 	bp1.refresh();
     },4000);
 });
