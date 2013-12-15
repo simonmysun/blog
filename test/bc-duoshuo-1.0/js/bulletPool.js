@@ -4,7 +4,7 @@ var bulletPool = {
 */
     version: '1.0',
 
-    createNew: function(id) { // return a new object bulletPool
+    createNew: function(i) { // return a new object bulletPool
 	var bp = {};
 
 	bp.canvas = '#' + id; // a place for bullets to fly
@@ -56,12 +56,12 @@ var bulletPool = {
 	    $(".ds-post").each(function() {
 		if(bp.bulletList[$(this).attr("data-post-id")] == undefined) {
 		    var bullet;
-		    try{
+		    try {
 			bullet = eval('(' + $(this).find("p").html() + ')');
 			bullet.id = $(this).attr("data-post-id") + "";
 			bullet.flying = false;
 			bp.bulletList[bullet.id] = bullet;
-		    }catch(e){
+		    } catch(e){
 			// console.log("JSON decode error: "+e.description);
 		    }
 		}
@@ -114,7 +114,7 @@ var bulletPool = {
 		bp.add();
 		bp.launch();	
 		$('.bullet').css('left',function(index,left) {
-		    return (parseInt(left) - (bp.size.width + bp.flying[$(this).attr('id')].) / bp.duration) + 'px';
+		    return (parseInt(left) - (bp.size.width + bp.flying[$(this).attr('id')].len) / bp.duration) + 'px';
 		}); 
 		$('.bullet').css('top',function(){
 		    return((bp.size.top + 30 * (bp.flying[$(this).attr('id')].row)) + 'px');
@@ -143,6 +143,7 @@ var bulletPool = {
 		bp.refresh();
 	    },bp.fps);
 	};
+
 	return bp;
     }
 }

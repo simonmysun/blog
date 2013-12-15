@@ -16,11 +16,11 @@ var in_ = function(x, a, b) {
 }
 
 var showComment = function(c) {
-    $(c).parent().parent().show(150);
+    $(c).parent().parent().fadeIn(150);
 }
 
 var hideComment = function(c) {
-    $(c).parent().parent().hide(150);
+    $(c).parent().parent().fadeOut(150);
 }
 
 var checkComment = function() {
@@ -38,9 +38,9 @@ var checkComment = function() {
 
 var makeBtn = function() {
     $('.ds-post-button').click(function(){
-	try{
+	try {
 	    var tmp = eval('(' + $('.ds-textarea-wrapper.ds-rounded-top').find('textarea').val() + ')');
-	}catch(e){
+	} catch(e){
 	    var bullet = {};
 	    bullet.content = $('.ds-textarea-wrapper.ds-rounded-top').find('textarea').val();
 	    bullet.style = 'background-color:#fff;opacity:0.7;border:1px solid #bbb;font-size:18px';
