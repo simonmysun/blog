@@ -9,8 +9,8 @@ body {
 }
 
 #commentlist {
-	max-width: 390px;
-	overflow:hidden;
+	/*max-width: 390px;
+	overflow:hidden;*/
 }
 
 .flyingbox {

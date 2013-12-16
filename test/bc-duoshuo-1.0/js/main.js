@@ -20,7 +20,7 @@ var clear = function() {
     $('#my-reply-box').find('textarea').addClass('commentx-input');
     $('#my-reply-box').find('a').remove();
     $('form.form-fill').addClass('row')
-    $('form.form-fill').append('<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><input type="checkbox" id="showbullet" checked></div>');
+    $('form.form-fill').append('<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><input type="checkbox" id="showflyingcomments" checked></div>');
     $('.ds-hidden-text').css('display','none');
     $('.ds-post-button').addClass('btn btn-block');
 }
