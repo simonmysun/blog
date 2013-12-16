@@ -2,22 +2,18 @@ body {
 	padding: 70px;
 }
 
-#bc-content {
+#post-content {
 	padding: 5px 15px 70px 15px ;
 	overflow: hidden;
 	position: absolute;
 }
 
-#bc-container {
-	display: none;
-}
-
-#bc-post {
+#commentlist {
 	max-width: 390px;
 	overflow:hidden;
 }
 
-.bullet {
+.flyingbox {
 	height: 28px;
 	padding: 1px;
 	position: absolute;
@@ -25,7 +21,7 @@ body {
 	overflow: hidden;
 }
 
-.bullet-input {
+.comment-input {
 	width: 100%;
 }
 

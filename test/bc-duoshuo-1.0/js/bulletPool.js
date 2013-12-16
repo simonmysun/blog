@@ -61,9 +61,12 @@ var bulletPool = {
 		    var bullet;
 		    try {
 			bullet = eval('(' + $(this).find("p").html() + ')');
-			bullet.id = $(this).attr("data-post-id") + "";
-			bullet.flying = false;
-			bp.bulletList[bullet.id] = bullet;
+			if(bp.bulletList[$(this).attr("data-post-id") + ''] == undefined) {
+			    bullet.id = $(this).attr("data-post-id") + '';
+			    bullet.flying = false;
+			    bp.bulletList[bullet.id] = bullet;
+			    $("#bc-content").append('<div class="bullet" id="' + x + '" style="left:' + bp.size.width + 'px;">' + '<div style="' + bullet.style + '">' + bp.bulletList[x].content + '</div></div>');
+			}
 		    } catch(e){
 			// console.log("JSON decode error: "+e.description);
 		    }
@@ -76,7 +79,7 @@ var bulletPool = {
 	    bp.flying[bullet.id] = bullet;
 	    bp.flying[bullet.id].len = $("#" + bullet.id)[0].offsetWidth;
 	    bp.flying[bullet.id].row = r;
-	    $("#bc-container").append('<div class="bullet" id="' + x + '" style="left:' + bp.size.width + 'px;top:' + (bp.size.top + r * 30) + 'px;">' + '<div style="' + bullet.style + '">' + bp.bulletList[x].content + '</div></div>'); 
+	    $('' + x).css('top',(bp.size.top + r * 30) + 'px'); 
 	    bp.row[r].tailloc = bp.size.width + ($("#" + bullet.id)[0].offsetWidth + 15); // tail location of the tail of the comment 
 	    bp.row[r].tailspeed = ($("#" + bullet.id)[0].offsetWidth + 15)/bp.duratiom; // tailspeed of last comment of current row
 	    bp.bulletList[bullet.id].flying = true;
