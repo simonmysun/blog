@@ -33,7 +33,7 @@ var commentContainer = {
                 C.rowStatus[i] = r;
 	    }
 	    C.spf = 10;
-	    C.duration = 8000 / C.spf;
+	    C.duration = 3000 / C.spf;
 	};
 			    
 			    
@@ -95,7 +95,7 @@ var commentContainer = {
                         C.commentList[this.id].row = C.getRow(C.commentList[this.id]);
                         if (C.commentList[this.id].row != -1) {
                             C.rowStatus[C.commentList[this.id].row].tailSpeed = C.commentList[this.id].speed;
-                            C.rowStatus[C.commentList[this.id].row].tailLoc = C.size.width;
+                            C.rowStatus[C.commentList[this.id].row].tailLoc = C.size.width + C.commentList[this.id].len;
                         } else {
 			    C.commentList[this.id].speed = 0;
 			}
@@ -110,6 +110,7 @@ var commentContainer = {
                         C.rowStatus[i].tailLoc -= C.rowStatus[i].tailSpeed;
                     } else {
                         C.rowStatus[i].tailLoc = 0;
+			C.rowStatus[i].tailSpeed = 1;
                     }
                 }
             } else {
