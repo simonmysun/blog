@@ -75,7 +75,7 @@ $(document).ready(function(){
 	makeBtn();
 	$(window).scroll();
 	C0.refresh();
-    },400);
+    },4000);
 });
 
 
