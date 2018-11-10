@@ -10,5 +10,5 @@ The blog entries are listed below.
 ## {{ currentDate }}
 {% assign myDate = currentDate %}
 {%- endif -%}
- * {{ post.date | date: "%d %b %Y" }}: [{{ post.title }}]({{ post.url }})
+ * {{ post.date | date: "%d %b %Y" }}: [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
 {% endfor %}
