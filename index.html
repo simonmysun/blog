@@ -3,6 +3,12 @@ layout: default
 title: Home Page
 ---
 The blog entries are listed below.
-{% for post in site.posts %}{% assign currentDate = post.date | date: "%Y" %}{% if currentDate != myDate %}
-## {{ currentDate }}{% assign myDate = currentDate %}{% endif %}
-  * {{ post.date | date: "%d %b %Y" }}: [{{ post.title }}]({{ post.url }}){% endfor %}
+{%- for post in site.posts -%}
+{%- assign currentDate = post.date | date: "%Y" -%}
+{% if currentDate != myDate %}
+
+## {{ currentDate }}
+{% assign myDate = currentDate %}
+{%- endif -%}
+ * {{ post.date | date: "%d %b %Y" }}: [{{ post.title }}]({{ post.url }})
+{% endfor %}

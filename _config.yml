@@ -1,6 +1,4 @@
 baseurl: /blog
 
-paginate:         4
-
 title:            Blog of Maoyin Sun
 feed:             /atom.xml
