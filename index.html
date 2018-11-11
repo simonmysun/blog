@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home Page
+title: Blogs of Maoyin Sun
 ---
 The blog entries are listed below.
 {%- for post in site.posts -%}
@@ -10,5 +10,5 @@ The blog entries are listed below.
 ## {{ currentDate }}
 {% assign myDate = currentDate %}
 {%- endif -%}
-{% assign void = void %}  * ={{ post.language }}= [{{ post.title }}]({{ site.baseurl }}{{ post.url }}), {{ post.date | date: "%d %b %Y" }} @ {{ post.place }}
+{% assign void = void %}  * %{{ post.language }}% [{{ post.title }}]({{ site.baseurl }}{{ post.url }}), {{ post.date | date: "%d %b %Y" }} @ {{ post.place }}
 {% endfor %}
