@@ -2,6 +2,6 @@
 layout: default
 ---
 # {{ page.title }}
-{{ page.date | date: "%d %b %Y" }} @ {{ page.place }}
+{{ page.date | date: "%e. %B %Y" | strip}} @ {{ page.place }}
 
 {{ content }}
