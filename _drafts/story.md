@@ -1,4 +1,9 @@
-Gamecraft
+---
+layout: post
+title: Gamecraft
+language: zh-CN
+place: Chemnitz, Deutschland
+---
 
 工匠 xx 找到一把天然的锋利的石刀，经过分析知道它的破碎次数已经达到 16 次。
 
