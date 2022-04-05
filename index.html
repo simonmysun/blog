@@ -2,15 +2,16 @@
 layout: default
 title: Blogs of Maoyin Sun
 ---
-# Blogs of Maoyin Sun
+Blogs of Maoyin Sun
+===================
 
 The blog entries are listed below.
-{%- for post in site.posts -%}
-{%- assign currentDate = post.date | date: "%Y" -%}
-{% if currentDate != myDate %}
+{% for post in site.posts %}
+{%- assign postDate = post.date | date: "%Y" -%}
+{% if postDate != currDate %}
+## {{ postDate }}
 
-## {{ currentDate }}
-{% assign myDate = currentDate %}
-{%- endif -%}
-{% assign void = void %}  * [{{ post.language }}] [{{ post.title }}]({{ site.baseurl }}{{ post.url }}), {{ post.date | date: "%e. %B %Y" | strip}} @ {{ post.place }}
+{% endif %}
+{%- assign currDate = postDate -%}
+* {{ post.date | date: "%d. %b" | strip}}, {{ post.language }}, [{{ post.title }}]({{ site.baseurl }}{{ post.url }}) @ {{ post.place }}
 {% endfor %}
