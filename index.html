@@ -13,5 +13,5 @@ The blog entries are listed below.
 
 {% endif %}
 {%- assign currDate = postDate -%}
-* {{ post.date | date: "%d. %b" | strip}}, {{ post.language }}, [{{ post.title }}]({{ site.baseurl }}{{ post.url }}) @ {{ post.place }}
+* {{ post.language }}, {{ post.date | date: "%d. %b" | strip}}, [{{ post.title }}]({{ site.baseurl }}{{ post.url }}) @ {{ post.place }}
 {% endfor %}
