@@ -5,8 +5,6 @@ language: en-DE
 place: Frankfurt am Main, Deutschland
 ---
 
-# Cleaning my Archlinux
-
 I installed Blackarch when I first set up my Archlinux system and have been using it for years. However, having Blackarch alongside the host system sometimes disrupts the rolling updates of the system. This can result in package name conflicts, duplicates, packages which are in my system but not in any of the mirrors, or packages that are not compatible with the system. Additionally, Blackarch includes many Python 2 packages, which have been deprecated. Each system update includes all the changing packages, even though I only use a few of them, which prolongs the update process. Overall, I am very satisfied with this distribution, but I recently discovered that using it as my daily driver may not be the best idea.
 
 ## Uninstall Blackarch
