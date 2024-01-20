@@ -2,4 +2,3 @@ baseurl: /blog
 
 title:            Blogs of Maoyin Sun
 feed:             /atom.xml
-markdown_ext:     "markdown,mkdown,mkdn,mkd," # ignore .md
