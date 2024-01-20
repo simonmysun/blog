@@ -9,7 +9,7 @@ place: Trieste, Italy
 locale、桌面环境和浏览器字体设置也没看出什么。一个稳定可复现的例子是在我这里访问：
 
 ```html
-data:text/html,<!DOCTYPE html><html%20lang="en"%20contenteditable><head><meta charset="utf-8"></head><body>%E8%A2%AB%E4%B8%80x%E4%B8%80%E4%B8%80%E4%BA%8C%E4%B8%80</body></html>
+data:text/html,&lt;!DOCTYPE html>&lt;html%20lang="en"%20contenteditable>&lt;head>&lt;meta charset="utf-8">&lt;/head>&lt;body>%E8%A2%AB%E4%B8%80x%E4%B8%80%E4%B8%80%E4%BA%8C%E4%B8%80&lt;/body>&lt;/html>
 ```
 
 于是在 TUNA 群里问了一下，引发了热心群友们的讨论。有群友怀疑是奇怪的合字，但是不应该，汉字跟拉丁字母不会合字；有群友认为有群友认为是字体 fallback 的问题。有群友建议看看 DevTools，看了一下果然用了奇怪的字体渲染。以上面的例子来说，DevTools 告诉我：
