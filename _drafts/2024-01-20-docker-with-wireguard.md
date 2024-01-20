@@ -88,19 +88,20 @@ PreDown = iptables -D FORWARD -o eth+ -j ACCEPT
 PreDown = iptables -t nat -D POSTROUTING -o wg+ -j MASQUERADE
 ```
 
-TUNA group members suggested using ctstate ESTABLISHED or ctstate NEW can avoid the concern of whether I should add rules for both directions, and also suggested using nftables. Will consider it later.
+TUNA group members suggested adding ctstate ESTABLISHED or NEW can avoid the concern of whether I should add rules for both directions and also suggested using nftables. Will consider it later.
 
 Now we can access the Wireguard peers from the Prometheus container. 
 
-## Let exporters listen to the subnet
+## Misc
+### Let exporters listen to the subnet
 
 The exporters on the instances other than the one Prometheus itself running on are now listening to `0.0.0.0:PORT`. I don't want them to be exposed to all the networks, so I change it to its IP in the Wireguard network: `10.13.13.X:PORT`. For exporters running in docker, it can be done during port binding: `10.13.13.X:PORT:PORT`. Now they are not accessible outside the Wireguard network. 
 
-## Start Docker daemon and Prometheus after Wireguard
+### Start Docker daemon and Prometheus after Wireguard
 
 However, the exporter containers or services failed to start every time I rebooted. This was because they were started before the Wireguard network was ready. 
 
-To ensure exporters start after the Wireguard network is ready, I edited the systemd unit file of e.g. docker daemon, adding `After=wg-quick@wg0.service` under `[Unit]` section. 
+To ensure exporters start after the Wireguard network is ready, I edited the systemd unit of e.g. docker daemon, adding `After=wg-quick@wg0.service` under `[Unit]` section. 
 
 ## Results
 
