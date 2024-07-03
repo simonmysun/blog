@@ -101,7 +101,7 @@ The exporters on the instances other than the one Prometheus itself running on a
 
 However, the exporter containers or services failed to start every time I rebooted. This was because they were started before the Wireguard network was ready. 
 
-To ensure exporters start after the Wireguard network is ready, I edited the systemd unit of e.g. docker daemon, adding `After=wg-quick@wg0.service` under `[Unit]` section. 
+To ensure exporters start after the Wireguard network is ready, I edited the systemd unit of e.g. docker daemon, adding `After=wg-quick@wg0.service` and `Requires=sys-devices-virtual-net-wg0.device` under `[Unit]` section. 
 
 ## Results
 
