@@ -17,7 +17,7 @@ In my case, previously I ran a Prometheus container on one of my VPSs and other 
 * Prometheus running in agent mode may send metrics with bad timestamps due to hibernation or suspension \[[ref][prometheus-out-of-bound]], even if I don't travel faster than light when my computer sleeps. 
 * My Raspberry Pi 1b doesn't have enough resources to run a Prometheus, and it is the only always-on device at my home. 
 * The `web.enable-remove-write-receiver` of Prometheus doesn't support authentication and needs another middleware for it.
-* One of the virtual machines doesn't have an IPv4 address, and adding IPv6 support for docker is painful. 
+* One of the virtual machines doesn't have an IPv4 address, and ~~adding IPv6 support for docker is painful~~ (marked as out of date). 
 
 [prometheus-out-of-bound]: https://github.com/prometheus/prometheus/issues/8243
 
