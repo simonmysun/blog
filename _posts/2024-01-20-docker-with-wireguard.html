@@ -82,10 +82,10 @@ PreDown = iptables -t nat -D POSTROUTING -o eth+ -j MASQUERADE
 
 PostUp = iptables -A FORWARD -i eth+ -j ACCEPT
 PostUp = iptables -A FORWARD -o eth+ -j ACCEPT
-PostUp = iptables -t nat -A POSTROUTING -o wg+ -j MASQUERADE
+PostUp = iptables -t nat -A POSTROUTING -o %i -j MASQUERADE
 PreDown = iptables -D FORWARD -i eth+ -j ACCEPT
 PreDown = iptables -D FORWARD -o eth+ -j ACCEPT
-PreDown = iptables -t nat -D POSTROUTING -o wg+ -j MASQUERADE
+PreDown = iptables -t nat -D POSTROUTING -o %i -j MASQUERADE
 ```
 
 TUNA group members suggested adding ctstate ESTABLISHED or NEW can avoid the concern of whether I should add rules for both directions and also suggested using nftables. Will consider it later.
