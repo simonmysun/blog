@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Blogs of Maoyin Sun
+language: en-DE
 ---
 Blogs of Maoyin Sun
 ===================
