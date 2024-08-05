@@ -11,7 +11,6 @@ The blog entries are listed below.
 {%- assign postDate = post.date | date: "%Y" -%}
 {% if postDate != currDate %}
 ## {{ postDate }}
-
 {% endif %}
 {%- assign currDate = postDate -%}
 * {{ post.language }}, {{ post.date | date: "%d. %b" | strip}}, [{{ post.title }}]({{ site.baseurl }}{{ post.url }}) @ {{ post.place }}
