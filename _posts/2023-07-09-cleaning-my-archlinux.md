@@ -7,6 +7,8 @@ place: Frankfurt am Main, Deutschland
 
 I installed Blackarch when I first set up my Archlinux system and have been using it for years. However, having Blackarch alongside the host system sometimes disrupts the rolling updates of the system. This can result in package name conflicts, duplicates, packages which are in my system but not in any of the mirrors, or packages that are not compatible with the system. Additionally, Blackarch includes many Python 2 packages, which have been deprecated. Each system update includes all the changing packages, even though I only use a few of them, which prolongs the update process. Overall, I am very satisfied with this distribution, but I recently discovered that using it as my daily driver may not be the best idea.
 
+**The commands in this post can be dangerous. Review before executing them**
+
 ## Uninstall Blackarch
 
 To fully remove the Blackarch install, the command from here: https://unix.stackexchange.com/questions/532455/removing-blackarch-completely-from-system is not enough. This works fine when you abandon the thoughts of using Blackarch right after you installed it. But let's first do this:
@@ -69,5 +71,10 @@ Finally, I saved more than 100GB from `/usr` and `/var`. Considering the impact 
 There are also garbage files in my home folder, but this is harder to find. I only went through my familiar places in `.config` and `.local`. I deleted around 3 GB most of which are out of date python site packages, but I don't think I deleted most of the garbage files.
 
 
-## TODO
-remove user?
+## Remove unused users
+
+Some packages create users and groups but don't remove them when uninstalled. Unfortunately I have to manually check them and remove them as well as their home folders. 
+
+## Conclusion
+
+In the end, I freed up more than 120GB of space. I also learned a lot about the system. I will keep the package list under version control and try to keep the system clean. I will also try to use docker for development to avoid the mess in the future. I hope this post helps you to clean your system.
