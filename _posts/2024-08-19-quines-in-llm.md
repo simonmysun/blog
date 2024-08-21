@@ -5,7 +5,7 @@ language: en-DE
 place: Frankfurt am Main
 ---
 
-I suddenly have interest in writing a quine in LLM. First we need to define a "quine" in LLM. A quine is usually a program that outputs its own source code. Under the context of LLM, we can define a quine as an input (prompt) into the LLM that outputs itself. 
+I suddenly have interest in writing a [quine](https://en.wikipedia.org/w/index.php?oldid=1230061368) in LLM. First we need to define a "quine" in LLM. A quine is usually a program that outputs its own source code. Under the context of LLM, we can define a quine as an input (prompt) into the LLM that outputs itself. 
 
 However the usual target, "writing a quine as short as possible", is too easy. I can simply let ChatGPT [echo my input](https://chatgpt.com/share/c222d98c-aeb3-465e-b724-dcfe1a8bc517)<!--https://web.archive.org/web/20240821070109/https://chatgpt.com/share/c222d98c-aeb3-465e-b724-dcfe1a8bc517-->. From searching the internet, I found people posting [an LLM quine of only an "echo"](https://www.reddit.com/r/ChatGPT/comments/zd6er5/comment/jdgq7g8/). Additionally, I believe these belongs to ["cheating quines"](https://en.wikipedia.org/w/index.php?oldid=1230061368#Self-evaluation). Consider the naughtiness of the LLMs, I should challenge writing longer quines.
 
