@@ -28,4 +28,4 @@ Here's the [result](https://chatgpt.com/share/53ed4fad-1499-40ea-86a5-dea145f425
 
 If the masking or padding when the input length is less than the context window is considered, the quine is a lot harder. But the context window is of the nowaday's models are larger and larger, finding such a "fixed point" is not so practical.
 
-Writing an [Ouroboros](https://en.wikipedia.org/w/index.php?oldid=1230061368#Ouroboros_programs) becomes my interest now. I will watch Yusuke Endoh's videos([1](https://www.youtube.com/watch?v=6K7EmeptEHo), [2](https://www.youtube.com/watch?v=ky1GNpT1dEw)) and come back trying on LLMs. 
+Writing an [Ouroboros](https://en.wikipedia.org/w/index.php?oldid=1230061368#Ouroboros_programs) with natural languages becomes my interest now. I will watch Yusuke Endoh's videos([1](https://www.youtube.com/watch?v=6K7EmeptEHo), [2](https://www.youtube.com/watch?v=ky1GNpT1dEw)) and come back trying on LLMs. 
