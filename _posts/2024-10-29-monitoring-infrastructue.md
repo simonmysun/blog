@@ -5,8 +5,6 @@ language: en-DE
 place: Trieste, Italia
 ---
 
-# Monitoring Infrastructure Deployment
-
 Note: This is a collection of notes taken during improvements on the observability of my services.
 
 In order to monitor the running status of various services on the servers (as well as local machines) in real time to ensure the stability and security of the services, I have deployed a monitoring system with Prometheus Loki Grafana stack. 
