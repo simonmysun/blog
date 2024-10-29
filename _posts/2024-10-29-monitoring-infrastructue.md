@@ -229,7 +229,7 @@ However, on edge devices, e.g. single-board computers, some metric collectors ar
 The least resource device I have is a Raspberry Pi 1B, which suffers from the high CPU usage of the node-exporter with default configuration.
 It is running a Raspbian Bookworm. 
 The `prometheus-node-exporter` package is installed from the official repository, which has a Debian patch to enable systemd collector by default (https://salsa.debian.org/go-team/packages/prometheus-node-exporter/-/blob/debian/sid/debian/patches/0001-Debian-defaults.patch?ref_type=heads#L103-104). 
-Additionally, if `prometheus-node-exporter-collectors` is installed, there will be `/usr/lib/systemd/system/prometheus-node-exporter-apt.service` and `/usr/lib/systemd/system/prometheus-node-exporter-apt.timer` (https://packages.debian.org/sid/all/prometheus-node-exporter-collectors/filelist) which will consume horrible amount of CPU due to short of RAM. 
+Additionally, if `prometheus-node-exporter-collectors` is installed, there will be `prometheus-node-exporter-apt.service` and `prometheus-node-exporter-apt.timer` (https://packages.debian.org/sid/all/prometheus-node-exporter-collectors/filelist) which will consume horrible amount of CPU due to short of RAM. 
 So `--no-collector.systemd` should be appended and `prometheus-node-exporter-collectors` should be removed in limited resource devices.
 
 ### cAdvisor
