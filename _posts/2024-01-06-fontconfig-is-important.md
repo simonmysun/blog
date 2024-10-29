@@ -2,7 +2,7 @@
 layout: post
 title: fontconfig 很重要
 language: zh-CN
-place: Trieste, Italy
+place: Trieste, Italia
 ---
 
 在意大利新装了一个 Linux 系统，结果发现在浏览器里没有特殊样式的情况下“一”有时会以黑体渲染，有时会以宋体渲染。我的第一反应是可能其中一个“一”是什么奇怪的 unicode 字符，然而不是。检查了一下

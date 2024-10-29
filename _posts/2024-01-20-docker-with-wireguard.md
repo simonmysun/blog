@@ -2,7 +2,7 @@
 layout: post
 title: Docker with Wireguard for routing between Prometheus and exporters
 language: en-DE
-place: Frankfurt am Main
+place: Frankfurt am Main, Deutschland
 ---
 
 ## Why bother

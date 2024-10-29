@@ -2,7 +2,7 @@
 layout: post
 title: Quines in LLM
 language: en-DE
-place: Frankfurt am Main
+place: Frankfurt am Main, Deutschland
 ---
 
 I suddenly have interest in writing a [quine](https://en.wikipedia.org/w/index.php?oldid=1230061368) in LLM. First we need to define a "quine" in LLM. A quine is usually a program that outputs its own source code. Under the context of LLM, we can define a quine as an input (prompt) into the LLM that outputs itself. 
