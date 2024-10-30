@@ -141,6 +141,16 @@ Some dashboards requires plugins to be installed. This is done with the `grafana
 
 Upon the fundamental components, there are several data collectors deployed to collect metrics from different sources. Promtail is the only log collector deployed for now. Others are metric collectors.
 
+Currently, data collectors are deployed on different types of devices in the network:
+
+- Server: rented servers in data centers
+- PC: personal computers, e.g. laptops, desktops
+- SBC: single-board computers, e.g. Raspberry Pi, installed in appartments in Italy and Germany
+- Mobile: mobile phones
+
+Some servers are not connected to the wireguard network and some do not have a public IP address.
+PCs and mobiles are not always on or connected to the wireguard network.
+To address these connectivity challenges, collectors are deployed in different ways.
 The data collectors are deployed as docker containers on powerful machines and as systemd services on the edge devices. To avoid the metrics or logs exposed to the public internet, they are configured to listen to their IP of the wireguard network: 
 
 - Most exporters support `--web.listen-address` flag to specify the listening address, i.e. `-web.listen-address [fd00:1::2:<internal-ip-suffix>]:<port>`.
