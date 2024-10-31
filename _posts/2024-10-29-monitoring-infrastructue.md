@@ -47,7 +47,7 @@ The system consists of the following components:
 └─────────────────────┘     └──────────┬──────────┘
                                        │           
                                        │           
-                                      │           
+                                       │           
                             +++++++++++++++++++++++
                             +                     +
                             +Notification Channels+
