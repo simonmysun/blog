@@ -21,39 +21,39 @@ The system consists of the following components:
 ## Fundamental Components
 
 ```plaintext
-    ***************                   ***************    
-    *             *                   *             *    
-    *   Logs &    *                   *   Metrics   *    
-    *  Journals   *                   *  Exporters  *    
-    *             *                   *             *    
-    ***************                   ***************    
-           │                                 │           
-           │                                 │           
-           │                                 │           
-┌──────────┴──────────┐           ┌──────────┴──────────┐
-│                     │           │                     │
-│        Loki         │           │     Prometheus      │
-│  (Log Aggregation)  │     ┌─────┤(Metrics Aggregation)│
-│                     │     │     │                     │
-└──────────┬──────────┘     │     └──────────┬──────────┘
-           │                │                │           
-           │                │                │           
-           │                │                │           
-┌──────────┴──────────┐     │     ┌──────────┴──────────┐
-│                     │     │     │                     │
-│       Grafana       ├─────┘     │    Alertmanager     │
-│    (Visualization)  │           │   (Alert Routing)   │
-│                     │           │                     │
-└─────────────────────┘           └──────────┬──────────┘
-                                             │           
-                                             │           
-                                             │           
-                                  +++++++++++++++++++++++
-                                  +                     +
-                                  +Notification Channels+
-                                  +   (e.g. Email)      +
-                                  +                     +
-                                  +++++++++++++++++++++++
+    ***************             ***************    
+    *             *             *             *    
+    *   Logs &    *             *   Metrics   *    
+    *  Journals   *             *  Exporters  *    
+    *             *             *             *    
+    ***************             ***************    
+           │                           │           
+           │                           │           
+           │                           │           
+┌──────────┴──────────┐     ┌──────────┴──────────┐
+│                     │     │                     │
+│        Loki         │     │     Prometheus      │
+│  (Log Aggregation)  │  ┌──┤(Metrics Aggregation)│
+│                     │  │  │                     │
+└──────────┬──────────┘  │  └──────────┬──────────┘
+           │             │             │           
+           │             │             │           
+           │             │             │           
+┌──────────┴──────────┐  │  ┌──────────┴──────────┐
+│                     │  │  │                     │
+│       Grafana       ├──┘  │    Alertmanager     │
+│    (Visualization)  │     │   (Alert Routing)   │
+│                     │     │                     │
+└─────────────────────┘     └──────────┬──────────┘
+                                       │           
+                                       │           
+                                      │           
+                            +++++++++++++++++++++++
+                            +                     +
+                            +Notification Channels+
+                            +   (e.g. Email)      +
+                            +                     +
+                            +++++++++++++++++++++++
 ```
 
 The core components are demonstrated in the diagram above, bringing logs and metrics to the users via visualizations and alerts. 
