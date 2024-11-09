@@ -140,7 +140,23 @@ Currently, data collectors are deployed on different types of devices in the net
 - Server: rented servers in data centers
 - PC: personal computers, e.g. laptops, desktops
 - SBC: single-board computers, e.g. Raspberry Pi, installed in appartments in Italy and Germany
+- Router: routers with OpenWRT
 - Mobile: mobile phones
+
+The network topology is as follows:
+
+```plaintext
+ ┌────────────────────────────────────────────────────────────────┐         
+ │                                               Wireguard Overlay│         
+┌│───────────────────────────┐┌──────────────────────────────────┐│         
+││                           ││               ┌──────────────────┼│────────┐
+││Virtual & Dedicated Servers││     SBCs      │Personal Computers││        │
+││ Incl. Monitoring Instance ││OpenWRT Routers│     Mobiles      ││Cellular│
+│└────────────────────────────────────────────────────────────────┘Network │
+│       Data Centers         ││  Residential  └──────────────────┼─────────┘
+│                            ││    Network                       │          
+└────────────────────────────┘└──────────────────────────────────┘          
+```
 
 Some servers are not connected to the wireguard network and some do not have a public IP address.
 PCs and mobiles are not always on or connected to the wireguard network.
