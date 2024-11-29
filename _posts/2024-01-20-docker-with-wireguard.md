@@ -5,6 +5,10 @@ language: en-DE
 place: Frankfurt am Main, Deutschland
 ---
 
+**Table of Contents**
+* .
+{:toc}
+
 ## Why bother
 
 Using Docker with Wireguard is controversial. Docker daemon and Wireguard both manipulate iptables and may conflict with each other. A container without `--cap-add=NET_ADMIN` cannot change its network routes and adding such capabilities is risky. There are several articles on the Internet describing how to route the traffic between containers with Wireguard, e.g.

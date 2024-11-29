@@ -7,6 +7,10 @@ place: Frankfurt am Main, Deutschland
 
 This is a writeup for the challenge "UNLOCK TRAIN DATA" in Hacky Holidays 2022 hosted by Deloitte. The challenge is a reverse engineering challenge and the goal is to decrypt the flag from the APK file.
 
+**Table of Contents**
+* .
+{:toc}
+
 ## Gathering information
 
 What we have here is a `travelportal.apk` file, so the first thing coming into my mind is to decompile it. Basically, `.apk` extension is for Android package and the file is in a zip archive format. Extracting it we can see the classes?.dex which is the compiled byte code and also the other non-executable resources.

@@ -7,6 +7,10 @@ place: Trieste, Italia
 
 Note: This is a collection of notes taken during improvements on the observability of my services.
 
+**Table of Contents**
+* .
+{:toc}
+
 In order to monitor the running status of various services on the servers (as well as local machines) in real time to ensure the stability and security of the services, I have deployed a monitoring system with Prometheus Loki Grafana stack. 
 Availabe data sources include logs, metrics, and traces. 
 For now, tracing is not in the scope because most of the services are not maintained by me, so I'm not interested in the tracing data. 
