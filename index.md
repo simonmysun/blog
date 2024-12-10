@@ -7,11 +7,11 @@ Blogs of Maoyin Sun
 ===================
 
 The blog entries are listed below.
-{% for post in site.posts %}
+{% for post in site.posts %}{% if post.layout == 'post' %}
 {%- assign postDate = post.date | date: "%Y" -%}
 {% if postDate != currDate %}
 ## {{ postDate }}
 {% endif %}
 {%- assign currDate = postDate -%}
 * {{ post.language }}, {{ post.date | date: "%d. %b" | strip}}, [{{ post.title }}]({{ site.baseurl }}{{ post.url }}) @ {{ post.place }}
-{% endfor %}
+{% endif %}{% endfor %}
