@@ -13,8 +13,11 @@ place: Frankfurt am Main, Deutschland
 
 Using Docker with Wireguard is controversial. Docker daemon and Wireguard both manipulate iptables and may conflict with each other. A container without `--cap-add=NET_ADMIN` cannot change its network routes and adding such capabilities is risky. There are several articles on the Internet describing how to route the traffic between containers with Wireguard, e.g.
 
-* https://www.linuxserver.io/blog/routing-docker-host-and-container-traffic-through-wireguard
-* https://www.procustodibus.com/blog/2022/02/wireguard-remote-access-to-docker-containers/
+* [Routing Docker Host And Container Traffic Through WireGuard][wireguard-containers-linuxserver-io] by linuxserver.io
+* [WireGuard Remote Access to Docker Containers][wireguard-containers-pro-custodibus] by Pro Custodibus
+
+[wireguard-containers-linuxserver-io]: https://www.linuxserver.io/blog/routing-docker-host-and-container-traffic-through-wireguard
+[wireguard-containers-pro-custodibus]: https://www.procustodibus.com/blog/2022/02/wireguard-remote-access-to-docker-containers/
 
 In my case, previously I ran a Prometheus container on one of my VPSs and other instances ran Prometheus with agent mode using `remote_write`. This has several problems:
 

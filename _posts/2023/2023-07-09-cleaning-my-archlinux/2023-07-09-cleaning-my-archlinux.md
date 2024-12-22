@@ -11,7 +11,7 @@ I installed Blackarch when I first set up my Archlinux system and have been usin
 
 ## Uninstall Blackarch
 
-To fully remove the Blackarch install, the command from here: https://unix.stackexchange.com/questions/532455/removing-blackarch-completely-from-system is not enough. This works fine when you abandon the thoughts of using Blackarch right after you installed it. But let's first do this:
+To fully remove the Blackarch install, the command from [here](https://unix.stackexchange.com/questions/532455/removing-blackarch-completely-from-system) is not enough. This works fine when you abandon the thoughts of using Blackarch right after you installed it. But let's first do this:
 
 ``` bash
 paclist blackarch | cut -d' ' -f1 | xargs sudo pacman -R
@@ -37,7 +37,7 @@ Please note that it's important to exercise caution.
 
 ## Clean package cache
 
-This is the easies part, just copy the commands from Archlinux wiki: https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache
+This is the easies part, just copy the commands from [Archlinux wiki page](https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache)
 
 Use these two commands to remove cache and keep 1 recent version of installed packages and 0 of uninstalled packages.
 

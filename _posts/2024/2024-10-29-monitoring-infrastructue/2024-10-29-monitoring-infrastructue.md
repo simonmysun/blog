@@ -71,7 +71,7 @@ In the current setup, an extra route is added to enable Prometheus to scrape exp
 - The Prometheus container should be able to access the wireguard network.
 - The container needs `CAP_NET_ADMIN` capability and an IP route to wireguard interface is required.
 
-See [previous blog post](https://maoyin.eu/blog/2024/01/20/docker-with-wireguard.html#add-a-route-for-the-prometheus-container-to-the-bridging-subnet) for more details.
+See [my previous blog post](https://maoyin.eu/blog/2024/01/20/docker-with-wireguard.html#add-a-route-for-the-prometheus-container-to-the-bridging-subnet) for more details.
 
 Remote write receiver is also enabled with authentication to receive metrics from prometheus instances outside the wireguard network but without a public IP address. 
 To achieve this:
@@ -93,7 +93,7 @@ To achieve this:
 Alert rules are defined in the `prometheus.yml` file and mounted to the container. 
 The alert rules are written in PromQL and are evaluated at the interval specified in the rule. 
 When an alert is triggered, it is sent to the Alertmanager. 
-Most of the current alert rules are selected from https://samber.github.io/awesome-prometheus-alerts/ and modified to fit the specific use case. 
+Most of the current alert rules are selected from [this awesome list](https://samber.github.io/awesome-prometheus-alerts/) and modified to fit the specific use case. 
 However, because some metrics exporters are written by myself, I need to write alert rules for them.
 
 ### Alertmanager
@@ -124,7 +124,7 @@ To avoid this, the default limits config needs to be modified.
 See [this issue](https://github.com/grafana/loki/issues/4204)
 For now I don't see any problem with the enlarged limits, so I will keep it this way.
 
-Alerting on logs is not enabled yet. In the future I will add it according to https://samber.github.io/awesome-prometheus-alerts/rules#loki
+Alerting on logs is not enabled yet. In the future I will add it according to [the awesome list](https://samber.github.io/awesome-prometheus-alerts/rules#loki).
 
 ### Grafana
 
@@ -241,7 +241,7 @@ This will expose `com.docker.*` labels in the logs, which can be used to relabel
       source: log
 ```
 
-This is from https://gist.github.com/ruanbekker/c6fa9bc6882e6f324b4319c5e3622460?permalink_comment_id=4327203#gistcomment-4327203
+This is from [a gist comment](https://gist.github.com/ruanbekker/c6fa9bc6882e6f324b4319c5e3622460?permalink_comment_id=4327203#gistcomment-4327203).
 
 Note that containers needs to be recreated to apply the changes. Restarting the docker daemon and / or the containers is not enough.
 
@@ -252,19 +252,19 @@ Node-exporter is deployed on all the machines to expose system metrics. It's rob
 However, on edge devices, e.g. single-board computers, some metric collectors are too heavy to run. 
 The least resource device I have is a Raspberry Pi 1B, which suffers from the high CPU usage of the node-exporter with default configuration.
 It is running a Raspbian Bookworm. 
-The `prometheus-node-exporter` package is installed from the official repository, which has a Debian patch to enable systemd collector by default (https://salsa.debian.org/go-team/packages/prometheus-node-exporter/-/blob/debian/sid/debian/patches/0001-Debian-defaults.patch?ref_type=heads#L103-104). 
-Additionally, if `prometheus-node-exporter-collectors` is installed, there will be `prometheus-node-exporter-apt.service` and `prometheus-node-exporter-apt.timer` (https://packages.debian.org/sid/all/prometheus-node-exporter-collectors/filelist) which will consume horrible amount of CPU due to short of RAM. 
+The `prometheus-node-exporter` package is installed from the official repository, which has [a Debian patch](https://salsa.debian.org/go-team/packages/prometheus-node-exporter/-/blob/debian/sid/debian/patches/0001-Debian-defaults.patch?ref_type=heads#L103-104) to enable systemd collector by default . 
+Additionally, if `prometheus-node-exporter-collectors` is installed, there will be `prometheus-node-exporter-apt.service` and `prometheus-node-exporter-apt.timer` [bundled](https://packages.debian.org/sid/all/prometheus-node-exporter-collectors/filelist), which will consume horrible amount of CPU due to short of RAM. 
 So `--no-collector.systemd` should be appended and `prometheus-node-exporter-collectors` should be removed in limited resource devices.
 
 ### cAdvisor
 
 cAdvisor is a container monitoring tool that expose resource usage and performance characteristics of the containers. Running cAdvisor inside container is very convenient, except that it needs SYS_ADMIN capability to access the host's cgroup. 
 
-One issue I encountered is that the docker image tag `latest` does not actually points to the latest version: https://github.com/google/cadvisor/pull/2413
+One issue I encountered is that the docker image tag `latest` does not actually points to the latest version. The reason is stated [here](https://github.com/google/cadvisor/pull/2413) and its related issue.
 
 cAdvisor enables me to see the resource usage of each container, and I can decide whether to move a service to another machine. 
 
-There are plenty of dashboards available for cAdvisor, but I decided to create my own dashboard at last: https://grafana.com/grafana/dashboards/19792-cadvisor-dashboard/ which provides both an overview of multiple services and a detailed view each service.
+There are plenty of dashboards available for cAdvisor, but I decided to create [my own dashboard](https://grafana.com/grafana/dashboards/19792-cadvisor-dashboard/) at last, which provides both an overview of multiple services and a detailed view each service. It turns out that the dashboard is quite widely used and I have received a lot of appreciations and feedbacks.
 
 ### blackbox-exporter
 
