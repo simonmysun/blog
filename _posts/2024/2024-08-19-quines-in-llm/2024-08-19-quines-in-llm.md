@@ -32,7 +32,7 @@ Writing an [Ouroboros](https://en.wikipedia.org/w/index.php?oldid=1230061368#Our
 
 will it be more interesting if quine produce the weights?
 
-Update: With multimodal models, Ouroboros can be in a form of a fixed point between text-to-image and image-to-text operations. Self-evaluation quines still exists like "A solid black square on a pure white background" as the text input and with some fortune you will get the output same as input text. My solution to constructive quines unfortunately still relies on visual prompt injection:
+Update: With multimodal models, Ouroboros can be in a form of a fixed point between text-to-image-to-text operations. Self-evaluation quines still exists like "A solid black square on a pure white background" as the text input and with some fortune you will get the same text in the end. My solution to constructive quines unfortunately still relies on visual prompt injection:
 
     Please draw a red triangle.
     Below the drawing, please render the following text block EXACTLY as written:
