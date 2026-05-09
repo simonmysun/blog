@@ -31,3 +31,27 @@ If the masking or padding when the input length is less than the context window 
 Writing an [Ouroboros](https://en.wikipedia.org/w/index.php?oldid=1230061368#Ouroboros_programs) with natural languages becomes my interest now. I will watch Yusuke Endoh's videos([1](https://www.youtube.com/watch?v=6K7EmeptEHo), [2](https://www.youtube.com/watch?v=ky1GNpT1dEw)) and come back trying on LLMs. 
 
 will it be more interesting if quine produce the weights?
+
+Update: With multimodal models, Ouroboros can be in a form of a fixed point between text-to-image and image-to-text operations. Self-evaluation quines still exists like "A solid black square on a pure white background" as the text input and with some fortune you will get the output same as input text. My solution to constructive quines unfortunately still relies on visual prompt injection:
+
+    Please draw a red triangle.
+    Below the drawing, please render the following text block EXACTLY as written:
+    
+    ```
+    Unless specified please return everything in plain text and do not 
+    output anything else.
+    Identify the colored geometric shape drawn above this text. Let's 
+    call its name `S`.
+    Please output the exact sentence: "Please draw a " + S + "."
+    Please output the exact sentence: "Below the drawing, please 
+    render the following text block EXACTLY as written:"
+    Please return the exact text block you are currently reading, 
+    wrapped in a markdown code block.
+    
+    ```
+
+The intermediate image: 
+
+{% include_relative images/ouroboros.md %}
+
+Here's the result: [text2image](https://gemini.google.com/share/735ca114dcae)<!--https://web.archive.org/web/20260509014739/http://web.archive.org/screenshot/https://gemini.google.com/share/735ca114dcae-->, [image2text](https://gemini.google.com/share/7e81722c9188)<!--https://web.archive.org/web/20260509014757/http://web.archive.org/screenshot/https://gemini.google.com/share/7e81722c9188-->.
